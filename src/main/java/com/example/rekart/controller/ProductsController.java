@@ -1,0 +1,49 @@
+package com.example.rekart.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.rekart.dto.ProductRequestDto;
+import com.example.rekart.entity.Product;
+import com.example.rekart.service.ProductServices;
+
+
+
+@RestController
+public class ProductsController {
+
+	
+	ProductServices service;
+	
+	public ProductsController(ProductServices service) {
+		super();
+		this.service = service;
+	}
+	@PostMapping("/addProduct")
+	public String addProduct(@RequestBody ProductRequestDto prod) {
+		return service.addProduct(prod);
+	}
+	@PatchMapping("/updateProduct")
+	public String updateProduct(@RequestBody Product prod) {
+		return service.updateProduct(prod);
+	}
+	@DeleteMapping("/deleteProduct/{prodId}")
+	public String deleteProduct(@PathVariable Long prodId) {
+		return service.deleteProduct(prodId);
+	}
+	@GetMapping("/viewProduct/{prodId}")
+	public Product viewProduct(@PathVariable Long prodId) {
+		return service.viewProduct(prodId);
+	}
+	@GetMapping("/viewAllProducts")
+	public List<Product> viewAllProducts() {
+		return service.viewAllProducts();
+	}
+}
