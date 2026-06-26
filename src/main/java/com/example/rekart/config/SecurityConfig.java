@@ -40,7 +40,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
             	    .requestMatchers(
             	            "/", "/index.html",
-            	            "/admin-home.html",
+            	            "/admin-home.html","/indexo.html",
             	            "/signup.html", "/login.html", "/admin-login.html",
             	            "/customer-home.html", "/view-cart.html",
             	            "/admin_home.html",
@@ -50,7 +50,7 @@ public class SecurityConfig {
             	            "/edit-product.html", "/view-product-admin.html",
             	            "/css/**", "/js/**"
             	    ).permitAll()
-            	    .requestMatchers("/auth/**", "/hello").permitAll()
+            	    .requestMatchers("/auth/**", "/api/otp/**", "/hello").permitAll()
             	    .requestMatchers("/customer/cart/**").hasRole("USER")
             	    .requestMatchers("/customer/payment/**").hasRole("USER")
             	    .requestMatchers("/products/**").hasAnyRole("USER", "ADMIN")
