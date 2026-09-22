@@ -134,9 +134,6 @@ async function loadProductDetails() {
     <img class="product-image-preview" src="${product.imageUrl || ""}" alt="${product.name}" />
   `;
 }
-/*
-<img src="${product.photoUrl ?? ""}" />
-*/
 
 async function prefillEditForm() {
   const id = getProductIdFromUrl();
