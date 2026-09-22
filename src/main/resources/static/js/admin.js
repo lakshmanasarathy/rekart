@@ -3,7 +3,6 @@ function ensureAdmin() {
   const role = localStorage.getItem("role");
   const username = localStorage.getItem("username");
 
-  // ✅ FIX: handle ROLE_ADMIN also
   if (!token || !role || !role.includes("ADMIN")) {
     window.location.href = "/admin-login.html";
     return false;
